@@ -11,6 +11,9 @@ function signup_user() {
         return window.alert('Password should not have less than 6 characters')
     }
 
+    document.getElementById("auth-text").style.display = "none"
+    document.getElementById("loader").style.display = "flex"
+
     firebase.auth().createUserWithEmailAndPassword(em, ps)
         .then((userCredential) => {
             console.log(userCredential)
@@ -32,6 +35,8 @@ function signup_user() {
             const errorCode = error.code;
             const errorMessage = error.message;
             showToaster(errorMessage)
+            document.getElementById("auth-text").style.display = "block"
+            document.getElementById("loader").style.display = "none"
         });
 }
 
@@ -50,6 +55,8 @@ function login_user() {
     event.preventDefault()
     const em = document.getElementById('email').value
     const ps = document.getElementById('password').value
+    document.getElementById("auth-text").style.display = "none"
+    document.getElementById("loader").style.display = "flex"
     console.log(em, ps)
 
     firebase.auth().signInWithEmailAndPassword(em, ps)
@@ -61,6 +68,8 @@ function login_user() {
             const errorCode = error.code;
             const errorMessage = error.message;
             showToaster(errorMessage)
+            document.getElementById("auth-text").style.display = "block"
+            document.getElementById("loader").style.display = "none"
         });
 }
 

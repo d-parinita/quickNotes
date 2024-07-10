@@ -45,6 +45,15 @@ p{
     display: flex;
     justify-content: center;
 }
+#loader{
+    display: none;
+}
+.create-acc{
+    text-decoration: none;
+}
+.create-acc:hover{
+    text-decoration: underline;
+}
 .e_mail, .pass_word, .auth-button, .user-name, .signup-email{
     width: 35vw;
 }

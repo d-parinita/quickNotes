@@ -23,7 +23,7 @@ get_user_data();
 
 function logout(){
     firebase.auth().signOut().then(() => {
-        window.location.href="../signup.html"
+        window.location.href="../index.html"
       }, (error) => {
         showToaster('Logout failed')
       });
@@ -90,6 +90,7 @@ function getNotes() {
         });
         content += `</div>`;
         const element = document.getElementById("get-notes");
+        document.getElementById("notes-loader").style.display = "none"
         element.innerHTML = content;
     })
     .catch((error) => {
